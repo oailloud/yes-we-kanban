@@ -5,10 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { IssuesService } from '../services/issues.service';
+import { KanbanTableComponent } from './kanban-table/kanban-table.component';
+import { ColumnComponent } from './column/column.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    KanbanTableComponent,
+    ColumnComponent
   ],
   imports: [
     BrowserModule,

@@ -2,12 +2,13 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { KanbanTableComponent } from './kanban-table/kanban-table.component';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent, KanbanTableComponent
       ],
     });
     TestBed.compileComponents();
