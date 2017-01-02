@@ -1,0 +1,27 @@
+:host {
+  overflow: hidden;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 0.8em;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+}
+
+li:hover {
+  overflow: visible;
+  white-space: normal;
+}
+
+li a {
+  color: inherit;
+}
