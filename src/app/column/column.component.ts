@@ -11,6 +11,7 @@ import { Issue } from '../../models/issue';
 export class ColumnComponent implements OnInit {
 
   @Input() label: string;
+  @Input() displayedLabel: string;
 
   issues: Issue[];
 

@@ -13,6 +13,7 @@ export class KanbanTableComponent implements OnInit, OnDestroy {
 
   private static readonly REFRESH_PERIOD = 30000; // 30s
 
+  @ViewChild('backlogColumn') backlogColumn: ColumnComponent;
   @ViewChild('todoColumn') todoColumn: ColumnComponent;
   @ViewChild('inProgressColumn') inProgressColumn: ColumnComponent;
   @ViewChild('reviewColumn') reviewColumn: ColumnComponent;
@@ -22,6 +23,7 @@ export class KanbanTableComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.timerSubscription = Observable.timer(0, KanbanTableComponent.REFRESH_PERIOD).subscribe(() =>  {
+      this.backlogColumn.refresh();
       this.todoColumn.refresh();
       this.inProgressColumn.refresh();
       this.reviewColumn.refresh();
