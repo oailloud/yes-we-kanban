@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/observable/timer';
 
+import { IssuesService } from '../../services/issues.service';
+import { Issue } from '../../models/issue';
+
 @Component({
   selector: 'ywk-kanban-table',
   templateUrl: './kanban-table.component.html',
@@ -17,9 +20,12 @@ export class KanbanTableComponent implements OnInit, OnDestroy {
   @ViewChild('todoColumn') todoColumn: ColumnComponent;
   @ViewChild('inProgressColumn') inProgressColumn: ColumnComponent;
   @ViewChild('reviewColumn') reviewColumn: ColumnComponent;
+  @ViewChild('closedColumn') closedColumn: ColumnComponent;
   timerSubscription: Subscription;
 
-  constructor() {}
+  constructor(
+    private issuesService: IssuesService,
+  ) {}
 
   ngOnInit() {
     this.timerSubscription = Observable.timer(0, KanbanTableComponent.REFRESH_PERIOD).subscribe(() =>  {
@@ -27,6 +33,7 @@ export class KanbanTableComponent implements OnInit, OnDestroy {
       this.todoColumn.refresh();
       this.inProgressColumn.refresh();
       this.reviewColumn.refresh();
+      this.closedColumn.refresh(this.issuesService.listLastUpdated("closed"));
     });
   }
 

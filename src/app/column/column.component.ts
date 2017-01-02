@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { Observable } from 'rxjs/Observable';
 import { IssuesService } from '../../services/issues.service';
 import { Issue } from '../../models/issue';
 
@@ -22,8 +22,11 @@ export class ColumnComponent implements OnInit {
   ngOnInit() {
   }
 
-  refresh() {
-    this.issuesService.listIssues(this.label).subscribe(_issues => {
+  refresh(issuesObservable?: Observable<[Issue]>) {
+    if (!issuesObservable) {
+      issuesObservable = this.issuesService.listIssues(this.label);
+    }
+    issuesObservable.subscribe(_issues => {
       this.issues = _issues;
     });
   }
