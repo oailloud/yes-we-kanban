@@ -2,6 +2,10 @@
   overflow: hidden;
 }
 
+h3 {
+  text-align: center;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -17,6 +21,7 @@ li {
   width: 100%;
   border-radius: 4px;
   padding: 0 3px;
+  word-break: break-word;
 }
 
 li:hover {
