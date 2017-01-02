@@ -1,7 +1,7 @@
 <h3>{{displayedLabel || label}}</h3>
 
 <ul>
-  <li *ngFor="let issue of issues;">
+  <li *ngFor="let issue of issues;" [style.background-color]="getProjectColor(issue)">
       <a [href]="issue.web_url" target="blank">{{issue.title}}</a>
   </li>
 </ul>

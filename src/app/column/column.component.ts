@@ -30,4 +30,17 @@ export class ColumnComponent implements OnInit {
       this.issues = _issues;
     });
   }
+
+  getProjectColor(issue: Issue): string {
+    switch (issue.project_id.toString()) {
+      case '2087312': return '#ffb3b3';
+      case '1875560': return '#bfcdff';
+      case '1606475': return '#bfe8b7';
+      case '1576764': return '#ffda95';
+      case '1970410': return '#f1ff7a';
+      case '1879132': return '#f79eec';
+      case '1679368': return '#d6d6d6';
+      default: return 'white';
+    }
+  }
 }
