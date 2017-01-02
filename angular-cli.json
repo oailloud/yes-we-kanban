@@ -20,7 +20,7 @@
       "styles": [
         "styles.css",
         "../node_modules/tether/dist/css/tether.min.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        "../node_modules/bootstrap/dist/css/bootstrap-flex.min.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
