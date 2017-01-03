@@ -45,3 +45,8 @@ li:hover {
 li a {
   color: inherit;
 }
+
+img {
+  display: block;
+  margin: 0 auto;
+}

@@ -2,6 +2,7 @@
   <h3>{{displayedLabel || label}}</h3>
   {{ issues?.length || "0" }}<span *ngIf="maxWIP">/{{ maxWIP }}</span>
 </div>
+<img src="assets/img/reload.gif" *ngIf="!issues" />
 <ul>
   <li *ngFor="let issue of issues;" [style.background-color]="getProjectColor(issue)">
       <a [href]="issue.web_url" target="blank">{{issue.title}}</a>
