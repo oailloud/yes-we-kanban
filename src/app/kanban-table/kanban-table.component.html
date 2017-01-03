@@ -1,16 +1,16 @@
 <div class="row">
-  <ywk-column label='' displayedLabel='Backlog' #backlogColumn class="col-md">
+  <ywk-column #backlogColumn label="" displayedLabel="Backlog" class="col-md">
   </ywk-column>
 
-  <ywk-column label='ToDo' #todoColumn class="col-md">
+  <ywk-column #todoColumn label="ToDo" maxWIP="10" class="col-md">
   </ywk-column>
 
-  <ywk-column label='In Progress' #inProgressColumn class="col-md">
+  <ywk-column #inProgressColumn maxWIP="3" label="In Progress" class="col-md">
   </ywk-column>
 
-  <ywk-column label='Review' #reviewColumn class="col-md">
+  <ywk-column #reviewColumn maxWIP="4" label="Review" class="col-md">
   </ywk-column>
 
-  <ywk-column label='Closed' #closedColumn class="col-md">
+  <ywk-column #closedColumn label="Last closed" class="col-md">
   </ywk-column>
 </div>

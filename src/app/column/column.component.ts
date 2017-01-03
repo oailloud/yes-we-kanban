@@ -12,6 +12,7 @@ export class ColumnComponent implements OnInit {
 
   @Input() label: string;
   @Input() displayedLabel: string;
+  @Input() maxWIP: number;
 
   issues: Issue[];
 
