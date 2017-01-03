@@ -14,7 +14,7 @@ export class IssuesService {
   {}
 
   listIssues(label: string): Observable<[Issue]> {
-    let url = `${environment.GITLAB_API_BASE_URL}issues?labels=${label}`;
+    let url = `${environment.GITLAB_API_BASE_URL}issues?labels=${label}&per_page=100`;
     let headers = new Headers({ 'PRIVATE-TOKEN': environment.GITLAB_API_TOKEN});
     return this.http.get(url, {headers: headers})
       .map(rawData => rawData.json());
