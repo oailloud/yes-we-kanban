@@ -27,7 +27,7 @@ export class Issue {
   due_date: string;
   iid: string;
   milestone: string;
-  project_id: string;
+  project_id: number;
   state: string;
   subscribed: string;
   updated_at: string;
