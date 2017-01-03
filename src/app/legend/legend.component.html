@@ -1,0 +1,9 @@
+<div class="legend-header" (click)="folded = !folded">
+  <div [class]="folded ? 'arrow-up' : 'arrow-down'"></div>Projects
+</div>
+<ul [class.folded]="folded">
+  <li *ngFor="let project of projects;">
+    <div [style.background-color]="getProjectColor(project)" class="project-color"></div>
+    <div>{{project.name}}</div>
+  </li>
+</ul>

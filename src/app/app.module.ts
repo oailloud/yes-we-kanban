@@ -8,12 +8,14 @@ import { IssuesService } from '../services/issues.service';
 import { ProjectsService } from '../services/projects.service';
 import { KanbanTableComponent } from './kanban-table/kanban-table.component';
 import { ColumnComponent } from './column/column.component';
+import { LegendComponent } from './legend/legend.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KanbanTableComponent,
-    ColumnComponent
+    ColumnComponent,
+    LegendComponent
   ],
   imports: [
     BrowserModule,
