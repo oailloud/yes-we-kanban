@@ -35,6 +35,6 @@ export class ColumnComponent implements OnInit {
   }
 
   getProjectColor(issue: Issue): string {
-    return this.projectsService.getColor(issue.project_id);
+    return this.projectsService.getColorByProjectId(issue.project_id);
   }
 }

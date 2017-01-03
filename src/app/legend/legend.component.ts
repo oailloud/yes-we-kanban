@@ -23,6 +23,6 @@ export class LegendComponent implements OnInit {
   }
 
   getProjectColor(project: Project): string {
-    return this.projectsService.getColor(project.id);
+    return this.projectsService.getColor(project);
   }
 }
