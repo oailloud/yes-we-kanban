@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AuthenticatedHttpService } from '../services/authenticated.http.service';
 import { IssuesService } from '../services/issues.service';
 import { ProjectsService } from '../services/projects.service';
 import { KanbanTableComponent } from './kanban-table/kanban-table.component';
@@ -22,7 +23,11 @@ import { LegendComponent } from './legend/legend.component';
     FormsModule,
     HttpModule
   ],
-  providers: [IssuesService, ProjectsService],
+  providers: [
+    { provide: Http, useClass: AuthenticatedHttpService },
+    IssuesService,
+    ProjectsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
