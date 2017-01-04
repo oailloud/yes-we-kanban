@@ -9,7 +9,7 @@ import { ProjectsService } from '../../services/projects.service';
   styleUrls: ['./legend.component.css']
 })
 export class LegendComponent implements OnInit {
-  projects : Project[];
+  projects: Project[];
   folded: boolean = true;
 
   constructor(

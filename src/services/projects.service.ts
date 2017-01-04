@@ -14,8 +14,7 @@ export class ProjectsService {
 
   constructor(
     private http: Http
-  )
-  {}
+  ) {}
 
   listProjects(): Observable<[Project]> {
     let url = `${environment.GITLAB_API_BASE_URL}projects?per_page=100`;
@@ -39,7 +38,7 @@ export class ProjectsService {
   }
 
   getColorByProjectId(projectId: number): string {
-    let project = this.projects.find((project) => project.id == projectId);
+    let project = this.projects.find((_project) => _project.id === projectId);
     return this.getColor(project);
   }
 }

@@ -36,7 +36,6 @@ describe('issue service', () => {
 
     mockBackend.connections.subscribe((connection: MockConnection) => {
       expect(connection.request.url).toBe(environment.GITLAB_API_BASE_URL + 'issues?labels=ToDo');
-      expect(connection.request.headers.get('PRIVATE-TOKEN')).toBe(environment.GITLAB_API_TOKEN);
       connection.mockRespond(new Response(new ResponseOptions({
         body: issues
       })));

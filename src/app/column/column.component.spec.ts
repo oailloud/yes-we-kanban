@@ -8,6 +8,7 @@ import 'rxjs/add/observable/of';
 import { ColumnComponent } from './column.component';
 import { Issue } from '../../models/issue';
 import { IssuesService } from '../../services/issues.service';
+import { ProjectsService } from '../../services/projects.service';
 
 describe('ColumnComponent', () => {
   let component: ColumnComponent;
@@ -19,6 +20,7 @@ describe('ColumnComponent', () => {
       declarations: [ ColumnComponent ],
       providers: [
         {provide: IssuesService , useValue: fakeIssuesService},
+        ProjectsService
       ]
     })
     .compileComponents();
@@ -37,7 +39,7 @@ describe('ColumnComponent', () => {
     issue.iid = '14';
     let issues = [issue];
     fakeIssuesService.listIssues.and.returnValue(Observable.of(issues));
-    component = new ColumnComponent(fakeIssuesService);
+    component = new ColumnComponent(fakeIssuesService, null);
     component.label = 'labelle';
 
     component.refresh();

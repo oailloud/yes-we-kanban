@@ -10,8 +10,7 @@ import { environment } from '../environments/environment';
 export class IssuesService {
   constructor(
     private http: Http
-  )
-  {}
+  ) {}
 
   listIssues(label: string): Observable<[Issue]> {
     let url = `${environment.GITLAB_API_BASE_URL}issues?labels=${label}&per_page=100`;

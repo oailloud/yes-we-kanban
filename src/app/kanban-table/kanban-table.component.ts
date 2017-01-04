@@ -33,7 +33,7 @@ export class KanbanTableComponent implements OnInit, OnDestroy {
       this.todoColumn.refresh();
       this.inProgressColumn.refresh();
       this.reviewColumn.refresh();
-      this.closedColumn.refresh(this.issuesService.listLastUpdated("closed"));
+      this.closedColumn.refresh(this.issuesService.listLastUpdated('closed'));
     });
   }
 

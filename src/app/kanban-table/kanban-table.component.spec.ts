@@ -8,7 +8,7 @@ import { KanbanTableComponent } from './kanban-table.component';
 describe('KanbanTableComponent', () => {
   let component: KanbanTableComponent;
   let fixture: ComponentFixture<KanbanTableComponent>;
-  let fakeColumnComponent: jasmine.createSpyObj('ColumnComponent', ['refresh']);
+  let fakeColumnComponent = jasmine.createSpyObj('ColumnComponent', ['refresh']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
