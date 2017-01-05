@@ -1,3 +1,7 @@
 .navbar {
   margin-bottom: 30px;
 }
+
+.navbar-brand {
+  font-family: 'Patua One', cursive;
+}
