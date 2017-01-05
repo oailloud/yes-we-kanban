@@ -27,14 +27,14 @@ ul {
 li {
   font-size: 0.8em;
   margin-bottom: 3px;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   display: block;
   width: 100%;
   border-radius: 4px;
   padding: 0 3px;
   word-break: break-word;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 li:hover {
@@ -44,6 +44,29 @@ li:hover {
 
 li a {
   color: inherit;
+}
+
+li .project  {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding: 0.1em 0.2em;
+  border-radius: 5px;
+  background-color: transparent;
+  color: whitesmoke;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+li:hover .project {
+  background-color: dimgrey;
+  height: auto;
+  width: auto;
+  opacity: 1;
 }
 
 img {

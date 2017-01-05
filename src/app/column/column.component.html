@@ -6,5 +6,6 @@
 <ul>
   <li *ngFor="let issue of issues;" [style.background-color]="getProjectColor(issue)">
       <a [href]="issue.web_url" target="blank">{{issue.title}}</a>
+      <div class="project">{{getProjectName(issue.project_id)}}</div>
   </li>
 </ul>

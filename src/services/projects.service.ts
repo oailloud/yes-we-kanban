@@ -41,4 +41,9 @@ export class ProjectsService {
     let project = this.projects.find((_project) => _project.id === projectId);
     return this.getColor(project);
   }
+
+  getName(projectId: number): string {
+    let project = this.projects.find((_project) => _project.id === projectId);
+    return project.name;
+  }
 }
