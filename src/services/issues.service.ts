@@ -14,11 +14,15 @@ export class IssuesService {
 
   listIssues(label: string): Observable<[Issue]> {
     let url = `${environment.GITLAB_API_BASE_URL}issues?labels=${label}&per_page=100`;
-    return this.http.get(url).map(rawData => rawData.json());
+    let headers = new Headers({ 'PRIVATE-TOKEN': environment.GITLAB_API_TOKEN});
+    return this.http.get(url, {headers: headers})
+      .map(rawData => rawData.json());
   }
 
   listLastUpdated(state: string): Observable<[Issue]> {
     let url = `${environment.GITLAB_API_BASE_URL}issues?state=${state}&order_by=updated_at`;
-    return this.http.get(url).map(rawData => rawData.json());
+    let headers = new Headers({ 'PRIVATE-TOKEN': environment.GITLAB_API_TOKEN});
+    return this.http.get(url, {headers: headers})
+      .map(rawData => rawData.json());
   }
 }

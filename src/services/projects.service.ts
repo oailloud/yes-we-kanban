@@ -18,7 +18,9 @@ export class ProjectsService {
 
   listProjects(): Observable<[Project]> {
     let url = `${environment.GITLAB_API_BASE_URL}projects?per_page=100`;
-    return this.http.get(url).map(rawData => rawData.json())
+    let headers = new Headers({ 'PRIVATE-TOKEN': environment.GITLAB_API_TOKEN});
+    return this.http.get(url, {headers: headers})
+      .map(rawData => rawData.json())
       .do((projects) => this.projects = projects);
   }
 
