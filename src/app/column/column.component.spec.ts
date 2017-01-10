@@ -14,13 +14,14 @@ describe('ColumnComponent', () => {
   let component: ColumnComponent;
   let fixture: ComponentFixture<ColumnComponent>;
   let fakeIssuesService = jasmine.createSpyObj('IssuesService', ['listIssues']);
+  let fakeProjectsService = jasmine.createSpyObj('ProjectsService', ['getColorByProjectId', 'getName']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ColumnComponent ],
       providers: [
-        {provide: IssuesService , useValue: fakeIssuesService},
-        ProjectsService
+        { provide: IssuesService , useValue: fakeIssuesService },
+        { provide: ProjectsService , useValue: fakeProjectsService },
       ]
     })
     .compileComponents();
@@ -28,8 +29,10 @@ describe('ColumnComponent', () => {
 
   beforeEach(() => {
     fakeIssuesService.listIssues.calls.reset();
+    fakeProjectsService.getColorByProjectId.calls.reset();
     fixture = TestBed.createComponent(ColumnComponent);
     component = fixture.componentInstance;
+    component.projects = Observable.of([]);
     fixture.detectChanges();
   });
 
@@ -39,7 +42,7 @@ describe('ColumnComponent', () => {
     issue.iid = '14';
     let issues = [issue];
     fakeIssuesService.listIssues.and.returnValue(Observable.of(issues));
-    component = new ColumnComponent(fakeIssuesService, null);
+    component = new ColumnComponent(fakeIssuesService, fakeProjectsService);
     component.label = 'labelle';
 
     component.refresh();

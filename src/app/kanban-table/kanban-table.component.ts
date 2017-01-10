@@ -46,6 +46,8 @@ export class KanbanTableComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.timerSubscription.unsubscribe();
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
   }
 }

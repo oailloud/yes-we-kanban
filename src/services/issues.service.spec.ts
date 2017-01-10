@@ -35,7 +35,7 @@ describe('issue service', () => {
     let issues = [issue];
 
     mockBackend.connections.subscribe((connection: MockConnection) => {
-      expect(connection.request.url).toBe(environment.GITLAB_API_BASE_URL + 'issues?labels=ToDo');
+      expect(connection.request.url).toBe(environment.GITLAB_API_BASE_URL + 'issues?labels=ToDo&per_page=100');
       connection.mockRespond(new Response(new ResponseOptions({
         body: issues
       })));
