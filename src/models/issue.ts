@@ -33,4 +33,8 @@ export class Issue {
   updated_at: string;
   upvotes: string;
   user_notes_count: string;
+
+  // yes-we-kanban columns
+  color: string;
+  project: string;
 }
