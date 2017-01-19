@@ -37,7 +37,9 @@ export class KanbanTableComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.projectsService.listProjects().subscribe(this.projects);
     this.timerSubscription = Observable.timer(0, KanbanTableComponent.REFRESH_PERIOD).subscribe(() =>  {
-      this.backlogColumn.refresh();
+      this.backlogColumn.refresh(this.issuesService.listWithoutLabels(
+        this.todoColumn.label, this.inProgressColumn.label, this.reviewColumn.label
+      ));
       this.todoColumn.refresh();
       this.inProgressColumn.refresh();
       this.reviewColumn.refresh();

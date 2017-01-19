@@ -25,4 +25,19 @@ export class IssuesService {
     return this.http.get(url, {headers: headers})
       .map(rawData => rawData.json());
   }
+
+  listWithoutLabels(...excludedLabels: string[]): Observable<[Issue]> {
+    let url = `${environment.GITLAB_API_BASE_URL}issues?order_by=updated_at&per_page=100`;
+    let headers = new Headers({ 'PRIVATE-TOKEN': environment.GITLAB_API_TOKEN});
+    return this.http.get(url, {headers: headers})
+      .map(rawData => rawData.json())
+      .map((issues) => issues.filter((issue) => {
+        for (let issueLabel of issue.labels) {
+          if (excludedLabels.indexOf(issueLabel) >= 0) {
+            return false;
+          }
+        }
+        return true;
+      }));
+  }
 }
