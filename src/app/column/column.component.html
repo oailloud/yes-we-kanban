@@ -4,7 +4,7 @@
 </div>
 <img src="assets/img/reload.gif" *ngIf="!issues" />
 <ul>
-  <li *ngFor="let issue of issues;" [style.background-color]="issue.color">
+  <li *ngFor="let issue of issues;" [style.background-color]="issue.color" [style.color]="issue.textColor">
       <a [href]="issue.web_url" target="blank">{{issue.title}}</a>
       <div class="project">{{issue.project}}</div>
   </li>

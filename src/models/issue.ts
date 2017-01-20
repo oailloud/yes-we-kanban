@@ -36,5 +36,6 @@ export class Issue {
 
   // yes-we-kanban columns
   color: string;
+  textColor: string;
   project: string;
 }

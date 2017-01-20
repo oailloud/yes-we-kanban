@@ -52,6 +52,16 @@ export class ColumnComponent implements OnInit {
 
   private setIssueSpecialFiels(issue: Issue) {
     issue.color = this.projectsService.getColorByProjectId(issue.project_id);
+    issue.textColor = this.useDarkText(issue.color) ? '#373a3c' : 'white';
     issue.project = this.projectsService.getName(issue.project_id);
+  }
+
+  private useDarkText(hex): boolean {
+    hex = hex.replace('#','');
+    var r = parseInt(hex.substring(0, 2), 16); // hexToR
+    var g = parseInt(hex.substring(2, 4), 16); // hexToG
+    var b = parseInt(hex.substring(4, 6), 16); // hexToB
+    // http://stackoverflow.com/a/3943023/1773450
+    return (r*0.299 + g*0.587 + b*0.114) > 186;
   }
 }

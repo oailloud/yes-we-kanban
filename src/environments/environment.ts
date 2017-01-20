@@ -19,5 +19,6 @@ export const environment = {
       mngdeps: '#f1ff7a',
       hosting: '#d6d6d6',
       lepinard: '#dc4d66',
+      maisondesaveugles: '#56564a',
   },
 };
