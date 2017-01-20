@@ -29,18 +29,7 @@ export class ProjectsService {
   }
 
   getColor(project: Project): string {
-    switch (project.name) {
-      case 'komaks': return '#ff995d';
-      case 'getmypool': return '#bfcdff';
-      case 'owltail': return '#bfe8b7';
-      case 'owlface': return '#e2f1d3';
-      case 'owlright': return '#74da6d';
-      case 'hashbang': return '#f79eec';
-      case 'mngdeps': return '#f1ff7a';
-      case 'hosting': return '#d6d6d6';
-      case 'lepinard': return '#dc4d66';
-      default: return 'white';
-    }
+    return environment.projectsColorMap[project.name] || '#ffffff';
   }
 
   getColorByProjectId(projectId: number): string {
